@@ -1,5 +1,7 @@
 ﻿using App_UI.Commands;
+using App_UI.Models;
 using App_UI.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,6 +17,9 @@ namespace App_UI.ViewModels
         private BaseViewModel currentViewModel;
         private List<BaseViewModel> viewModels;
         private UsersViewModel usersViewModel;
+        
+       
+
 
         private string filename;
 
@@ -29,6 +34,32 @@ namespace App_UI.ViewModels
         /// <summary>
         /// Model actuellement affiché
         /// </summary>
+        /// 
+
+        
+        private string openFilename;
+
+        public string OpenFilename
+        {
+            get { return openFilename; }
+            set
+            {
+                openFilename = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string fileContent;
+
+        public string FileContent
+        {
+            get { return fileContent; }
+            set
+            {
+                fileContent = value;
+                OnPropertyChanged();
+            }
+        }
         public BaseViewModel CurrentViewModel
         {
             get { return currentViewModel; }
@@ -117,6 +148,7 @@ namespace App_UI.ViewModels
         /// </summary>
         private void initCommands()
         {
+            ImportCommand = new DelegateCommand<string>(ImportData);
             ChangePageCommand = new DelegateCommand<string>(ChangePage);
             ExportCommand = new DelegateCommand<string>(ExportData);
             NewRecordCommand = new DelegateCommand<string>(RecordCreate);
@@ -128,18 +160,40 @@ namespace App_UI.ViewModels
         {
             usersViewModel?.CreateEmptyUser();
         }
+        
 
         private void ExportData(string obj)
         {
-            /// TODO 02a : Compléter ExportData
-            /// Utiliser PeopleDataService.Instance.GetAllAsJson() pour récupérer le json
+            string data = PeopleDataService.Instance.GetAllAsJson();
+
+            filename = "Potato.json";
+            
+
+            using (var tw = new StreamWriter(filename))
+            {
+                tw.WriteLine(data);
+                tw.Close();
+            }
+
+            
         }
 
         private async void ImportData(string obj)
         {
             /// TODO 01b : Compléter la commande d'importation
-            /// Utiliser PeopleDataService.Instance.SetAllFromJson(string allContent)
+            /// using (StreamReader sr = File.OpenText(filename))
+            using (StreamReader sr = File.OpenText(filename))
+            {
+                string fileContent = sr.ReadToEnd();
+
+                PeopleDataService.Instance.SetAllFromJson(fileContent);
+            }
             
+
+             
+            
+            
+
         }
 
         private void initViewModels()
@@ -154,6 +208,15 @@ namespace App_UI.ViewModels
 
             ViewModels.Add(configurationViewModel);
             ViewModels.Add(usersViewModel);
+        }
+        private void showFileContent()
+        {
+            using (var sr = new StreamReader(OpenFilename))
+            {
+                FileContent = "-- FileContent --" + Environment.NewLine;
+                FileContent += sr.ReadToEnd();
+
+            }
         }
 
         private void ChangePage(string name)

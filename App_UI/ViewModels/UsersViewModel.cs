@@ -237,11 +237,12 @@ namespace App_UI.ViewModels
             SelectedPerson = People[0];
 
             /// TODO 03a : Compléter ValidateDataCommand
+           
             ValidateDataCommand = new DelegateCommand<string>(ValidateData);
             SaveCommand = new DelegateCommand<string>(SaveData, CanSave);
             CancelCommand = new DelegateCommand<string>(CancelChange, CanCancel);
             DeleteCommand = new DelegateCommand<string>(DeleteData, CanDelete);
-
+            
             initRegEx();
         }
 

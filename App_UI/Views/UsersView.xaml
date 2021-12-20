@@ -77,7 +77,7 @@
 
             <WrapPanel Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2">
                 <Button Content="{x:Static p:Resources.btn_del}" Command="{Binding DeleteCommand}"/>
-                <Button Content="{x:Static p:Resources.btn_validate}" Command="{Binding ValidateDataCommand}"/>
+                <Button IsEnabled="True" Content="{x:Static p:Resources.btn_validate}" Command="{Binding ValidateDataCommand}"/>
                 <Button Content="{x:Static p:Resources.btn_cancel}" Command="{Binding CancelCommand}"/>
                 <Button Content="{x:Static p:Resources.btn_save_people}" Command="{Binding SaveCommand}"/>
             </WrapPanel>

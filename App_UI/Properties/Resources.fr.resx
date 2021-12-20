@@ -160,7 +160,7 @@
     <value>Le courriel n'a pas le bon format.</value>
   </data>
   <data name="msg_remobile" xml:space="preserve">
-    <value>Le Portable n'a pas le bon format</value>
+    <value>Le Mobile n'a pas le bon format</value>
   </data>
   <data name="msg_rephone" xml:space="preserve">
     <value>Le telephone n'a pas le bon format</value>
