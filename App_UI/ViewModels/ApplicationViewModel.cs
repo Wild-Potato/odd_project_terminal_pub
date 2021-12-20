@@ -79,6 +79,7 @@ namespace App_UI.ViewModels
 
         /// <summary>
         /// TODO 01a : Compléter l'ImportCommand
+            
         /// </summary>
         public DelegateCommand<string> ImportCommand { get; set; }
 
@@ -89,6 +90,7 @@ namespace App_UI.ViewModels
 
         /// <summary>
         /// TODO 04a : Compléter ChangeLanguageCommand
+       
         /// </summary>
         public DelegateCommand<string> ChangeLanguageCommand { get; set; }
 
@@ -118,6 +120,7 @@ namespace App_UI.ViewModels
             ChangePageCommand = new DelegateCommand<string>(ChangePage);
             ExportCommand = new DelegateCommand<string>(ExportData);
             NewRecordCommand = new DelegateCommand<string>(RecordCreate);
+            ChangeLanguageCommand = new DelegateCommand<string>(ChangeLanguage);
 
         }
 

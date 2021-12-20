@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:App_UI.Views"
              xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             xmlns:p="clr-namespace:App_UI.Properties"
              xmlns:ctrl="clr-namespace:App_UI.Controls"
              mc:Ignorable="d" 
              xmlns:vm="clr-namespace:App_UI.ViewModels"
@@ -47,9 +48,9 @@
             </Grid.RowDefinitions>
 
             <!-- TODO 04 : Besoin de traduction -->
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="First name :"/>
-            <TextBlock Grid.Row="0" Grid.Column="2" Text="Last name :"/>
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="City :"/>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static p:Resources.txt_fnom}"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="{x:Static p:Resources.txt_lastnom}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static p:Resources.txt_city}"/>
 
 
             <!-- TODO 04 : Besoin de traduction -->
@@ -75,10 +76,10 @@
             <DatePicker Grid.Row="5" Grid.Column="1" Text="{Binding BirthDay}" VerticalAlignment="Center" d:Text="2021-12-03"/>
 
             <WrapPanel Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2">
-                <Button Content="Delete" Command="{Binding DeleteCommand}"/>
-                <Button Content="Validate" Command="{Binding ValidateDataCommand}"/>
-                <Button Content="Cancel" Command="{Binding CancelCommand}"/>
-                <Button Content="Save" Command="{Binding SaveCommand}"/>
+                <Button Content="{x:Static p:Resources.btn_del}" Command="{Binding DeleteCommand}"/>
+                <Button Content="{x:Static p:Resources.btn_validate}" Command="{Binding ValidateDataCommand}"/>
+                <Button Content="{x:Static p:Resources.btn_cancel}" Command="{Binding CancelCommand}"/>
+                <Button Content="{x:Static p:Resources.btn_save_people}" Command="{Binding SaveCommand}"/>
             </WrapPanel>
             <StackPanel Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3"
                         Visibility="{Binding MessageVisibility, Converter={StaticResource BooleanToVisibilityConverter}}" >

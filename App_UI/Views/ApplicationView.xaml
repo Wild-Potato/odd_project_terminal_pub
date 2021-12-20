@@ -30,6 +30,7 @@
             </MenuItem>
             <MenuItem Header="{x:Static p:Resources.mi_language}">
                 <MenuItem Header="English" Command="{Binding ChangeLanguageCommand}" CommandParameter="en" />
+                <MenuItem Header="Francais" Command="{Binding ChangeLanguageCommand}" CommandParameter="fr" />
                 <!-- TODO Ajouter l'item "Français" pour changer la langue en français -->
             </MenuItem>
         </Menu>
