@@ -150,11 +150,32 @@
   <data name="mi_preferences" xml:space="preserve">
     <value>Preferences...</value>
   </data>
+  <data name="msg_error" xml:space="preserve">
+    <value>No or Invalide Info</value>
+  </data>
+  <data name="msg_province" xml:space="preserve">
+    <value>The Province/State doesn't have the good format</value>
+  </data>
+  <data name="msg_reemail" xml:space="preserve">
+    <value>The email doesn't have the good format</value>
+  </data>
+  <data name="msg_remobile" xml:space="preserve">
+    <value>The Mobile doesn't have the good format</value>
+  </data>
+  <data name="msg_rephone" xml:space="preserve">
+    <value>The Phone Number doesn't have the good format</value>
+  </data>
+  <data name="msg_repostal" xml:space="preserve">
+    <value>The Postal Code doesn't have the good format</value>
+  </data>
   <data name="msg_restart" xml:space="preserve">
     <value>Restarting...</value>
   </data>
   <data name="msg_warning" xml:space="preserve">
     <value>Warning</value>
+  </data>
+  <data name="txt_birth" xml:space="preserve">
+    <value>Birthday : </value>
   </data>
   <data name="txt_city" xml:space="preserve">
     <value>City : </value>
@@ -178,7 +199,7 @@
     <value>Postal Code : </value>
   </data>
   <data name="txt_province" xml:space="preserve">
-    <value>Province : </value>
+    <value>Province/State : </value>
   </data>
   <data name="txt_tel" xml:space="preserve">
     <value>Phone : </value>

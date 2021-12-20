@@ -160,6 +160,60 @@ namespace App_UI.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à No or Invalide Info.
+        /// </summary>
+        public static string msg_error {
+            get {
+                return ResourceManager.GetString("msg_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The Province/State doesn&apos;t have the good format.
+        /// </summary>
+        public static string msg_province {
+            get {
+                return ResourceManager.GetString("msg_province", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The email doesn&apos;t have the good format.
+        /// </summary>
+        public static string msg_reemail {
+            get {
+                return ResourceManager.GetString("msg_reemail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The Mobile doesn&apos;t have the good format.
+        /// </summary>
+        public static string msg_remobile {
+            get {
+                return ResourceManager.GetString("msg_remobile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The Phone Number doesn&apos;t have the good format.
+        /// </summary>
+        public static string msg_rephone {
+            get {
+                return ResourceManager.GetString("msg_rephone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The Postal Code doesn&apos;t have the good format.
+        /// </summary>
+        public static string msg_repostal {
+            get {
+                return ResourceManager.GetString("msg_repostal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Restarting....
         /// </summary>
         public static string msg_restart {
@@ -174,6 +228,15 @@ namespace App_UI.Properties {
         public static string msg_warning {
             get {
                 return ResourceManager.GetString("msg_warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Birthday : .
+        /// </summary>
+        public static string txt_birth {
+            get {
+                return ResourceManager.GetString("txt_birth", resourceCulture);
             }
         }
         
@@ -241,7 +304,7 @@ namespace App_UI.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Province : .
+        ///   Recherche une chaîne localisée semblable à Province/State : .
         /// </summary>
         public static string txt_province {
             get {

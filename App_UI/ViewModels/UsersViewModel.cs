@@ -7,6 +7,8 @@ using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
+using System.Windows.Controls;
+using System.Resources;
 
 namespace App_UI.ViewModels
 {
@@ -235,7 +237,7 @@ namespace App_UI.ViewModels
             SelectedPerson = People[0];
 
             /// TODO 03a : Compléter ValidateDataCommand
-
+            ValidateDataCommand = new DelegateCommand<string>(ValidateData);
             SaveCommand = new DelegateCommand<string>(SaveData, CanSave);
             CancelCommand = new DelegateCommand<string>(CancelChange, CanCancel);
             DeleteCommand = new DelegateCommand<string>(DeleteData, CanDelete);
@@ -302,12 +304,14 @@ namespace App_UI.ViewModels
 
         /// <summary>
         /// TODO 03b : Initilialisation des expressions régulières
+
+        
         /// </summary>
         private void initRegEx()
         {
-            ReProvince = new Regex(@"TODO");
-            RePhoneNumber = new Regex(@"TODO");
-            RePostalCode = new Regex(@"TODO");
+            ReProvince = new Regex(@"\w{2}");
+            RePhoneNumber = new Regex(@"(\d{3}[ -]?){2}[ -]?\d{4}");
+            RePostalCode = new Regex(@"\w\d\w[ -]?\d\w\d|\d{5}");
 
             ReEmail = new Regex(@"([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*");
         }
@@ -324,15 +328,40 @@ namespace App_UI.ViewModels
             /// TODO 03d : Si c'est un nouvel enregistrement, tout plante. Corrigez la situation.
 
             /// TODO 03c : Valider les données de chaque propriété
-
-
-            if (!ReEmail.IsMatch(Email))
+            try
             {
-                Message += "Le courriel n'a pas le bon format." + Environment.NewLine;
+                if (!RePostalCode.IsMatch(PostalCode))
+                {
+                    Message += $"{Properties.Resources.msg_repostal}" + Environment.NewLine;
+                }
+                if (!RePhoneNumber.IsMatch(Phone))
+                {
+                    Message += $"{Properties.Resources.msg_rephone}" + Environment.NewLine;
+                }
+                if (!RePhoneNumber.IsMatch(Mobile))
+                {
+                    Message += $"{Properties.Resources.msg_remobile}" + Environment.NewLine;
+                }
+                if (!ReProvince.IsMatch(Province))
+                {
+                    Message += $"{Properties.Resources.msg_province}" + Environment.NewLine;
+                }
+                if (!ReEmail.IsMatch(Email))
+                {
+                    Message += $"{Properties.Resources.msg_reemail}" + Environment.NewLine;
+                }
+
+                IsDirty = Message != "";
+                IsSaveable = Message == "";
+            }
+            catch (Exception)
+            {
+
+                Message += $"{Properties.Resources.msg_error}" + Environment.NewLine;
+                
             }
 
-            IsDirty = Message != "";
-            IsSaveable = Message == "";
+            
         }
 
         /// <summary>

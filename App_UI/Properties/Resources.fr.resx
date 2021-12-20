@@ -150,11 +150,32 @@
   <data name="mi_preferences" xml:space="preserve">
     <value>Préférences...</value>
   </data>
+  <data name="msg_error" xml:space="preserve">
+    <value>Aucune information entrer ou Information Invalide</value>
+  </data>
+  <data name="msg_province" xml:space="preserve">
+    <value>La province n'a pas le bon format</value>
+  </data>
+  <data name="msg_reemail" xml:space="preserve">
+    <value>Le courriel n'a pas le bon format.</value>
+  </data>
+  <data name="msg_remobile" xml:space="preserve">
+    <value>Le Portable n'a pas le bon format</value>
+  </data>
+  <data name="msg_rephone" xml:space="preserve">
+    <value>Le telephone n'a pas le bon format</value>
+  </data>
+  <data name="msg_repostal" xml:space="preserve">
+    <value>Le Code Postal n'a pas le bon format</value>
+  </data>
   <data name="msg_restart" xml:space="preserve">
     <value>Redemarrage...</value>
   </data>
   <data name="msg_warning" xml:space="preserve">
     <value>Attention</value>
+  </data>
+  <data name="txt_birth" xml:space="preserve">
+    <value>Naissance : </value>
   </data>
   <data name="txt_city" xml:space="preserve">
     <value>Ville : </value>
